@@ -23,6 +23,91 @@ Claude triggers this skill when you say things like:
 
 ---
 
+## Quick Usage — `/ppt-template-overwriter`
+
+The fastest way to use this skill is with the slash command in Claude chat. Upload your `.pptx` template, then type:
+
+```
+/ppt-template-overwriter
+```
+
+Claude will immediately scan your template and return a **slide map** — no extra setup needed.
+
+### Common one-liners
+
+```
+/ppt-template-overwriter fill slide 1 with "Q3 Revenue Report" and the bullets below
+/ppt-template-overwriter replace images on slides 3 and 5 with the ones I'm uploading
+/ppt-template-overwriter inject this YAML into my deck and preserve all formatting
+/ppt-template-overwriter dry-run — just show me the slide map, don't change anything
+/ppt-template-overwriter update chart data on slide 4 with this CSV
+```
+
+### Full command pattern
+
+```
+/ppt-template-overwriter [action] [target] [content or file]
+```
+
+| Part | Examples |
+|------|---------|
+| `action` | `fill`, `inject`, `replace`, `update`, `dry-run` |
+| `target` | `slide 2`, `slides 1-4`, `all slides`, `chart on slide 3` |
+| `content` | inline text, bullet list, attached YAML/JSON/CSV, or uploaded image |
+
+If you omit any part, Claude will ask exactly what it needs — no guessing.
+
+---
+
+## Using on Mobile
+
+No terminal or IDE needed. Everything runs directly in the Claude chat app on your phone.
+
+### Step 1 — Upload your template
+
+Tap the **paperclip / attachment icon** in the chat bar and select your `.pptx` file from Files, Google Drive, or your camera roll.
+
+### Step 2 — Trigger the skill
+
+Type (or paste) the slash command in the message box:
+
+```
+/ppt-template-overwriter
+```
+
+Then hit **Send**. Claude scans the file and replies with a slide map like:
+
+```
+Slide 0 │ Cover Page          │ Title, Subtitle
+Slide 1 │ Introduction        │ title (ph0), body (ph1)
+Slide 2 │ Problem Statement   │ title (ph0), TextBox 8
+```
+
+### Step 3 — Confirm what goes where
+
+Reply in plain language — no YAML required on mobile:
+
+```
+Slide 0: title = "2026 Strategy Brief", subtitle = "Product Team"
+Slide 1: body = "Three focus areas this year: AI, Platform, Partnerships"
+Slide 2: body = "Customer churn rose 8% in Q1 due to onboarding friction"
+```
+
+Or attach a YAML/JSON file if you have one ready.
+
+### Step 4 — Download the output
+
+When Claude finishes, it posts a download link for `output.pptx`. Tap it to save directly to your device or open in PowerPoint / Keynote.
+
+### Mobile tips
+
+- **Long content?** Use the Notes app to draft your slide text, then paste it into Claude.
+- **Images?** Attach them one at a time and tell Claude which slide each belongs to: *"This image goes on slide 3."*
+- **Not sure about slide numbers?** Use `dry-run` first to see the map, then send your content in a follow-up message.
+- **Large decks (50+ slides)?** Add `chunk 10` to your message so Claude processes 10 slides at a time and avoids timeouts.
+
+---
+
 ## Repository Structure
 
 ```
